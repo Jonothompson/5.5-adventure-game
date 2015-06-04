@@ -7,4 +7,4 @@ Clone this repo and run the setup script:
     rm -rf .git
     ./setup.sh
 
-- [ ] remember to sleep
+- [ ] don't mess up
