@@ -3,8 +3,8 @@ window.AdventureFight = window.AdventureFight || {};
 (function(module){
   'use strict';
 
-var hero = selectedHero;
-var villain = selectedVillain;
+var hero = 'selectedHero';
+var villain = 'selectedVillain';
 
   AdventureFight.vent = _.extend({}, Backbone.Events);
  AdventureFight.vent.on('choose:heroes', function(characters) {
@@ -17,11 +17,10 @@ var villain = selectedVillain;
     module.router = new module.AdventureRouter();
     Backbone.history.start();
 
-    function hero(selectedHero){
-      this.attack:
-      this.health:
-
-    }
+    // function hero(selectedHero){
+    //   this.attack
+    //   this.health
+    // }
 //Hannah prototype
     AdventureFight.hero = {
 
@@ -52,14 +51,34 @@ var villain = selectedVillain;
    AdventureFight.router.navigate('fight', {trigger: true});
  });
 
-function villain(){
-  this.attack:
-  this.health:
-  //create and assign randoms Meg
-}
+// function villain(selectedVillain){
+//   this.attack:
+//   this.health:
+// }
 
-  var iceking = new villain('Ice King');
-  var lemongrab = new villain('Earl of Lemongrab')
+AdventureFight.villain = {
+
+  'Ice King' : new villain({
+    health: 100,
+    attack: 10
+  }),
+
+  'Earl of Lemongrab' : new villain({
+    health: 100,
+    attack: 10
+  }),
+
+  'Princess Bubblegum' : new villain({
+    health: 100,
+    attack: 10
+  }),
+
+  'Magic Man' : new villain({
+    health: 100,
+    attack: 10
+  }),
+
+}
 
   $(document).on('submit', '.heroes', function(selectedVillain){
     villain.random()
@@ -67,7 +86,3 @@ function villain(){
 
   });
 })(window.AdventureFight);
-
-
-
-})();
