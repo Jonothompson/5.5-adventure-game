@@ -19,3 +19,32 @@ body {
   background-color: $base-background-color;
   color: $base-font-color;
 }
+
+div {
+  display: inline-block;
+}
+
+.finn {
+  height: 100px;
+  width: 100px;
+  background-color: blue;
+
+}
+
+.jake {
+  height: 100px;
+  width: 100px;
+  background-color: yellow;
+}
+
+.fiona {
+  height: 100px;
+  width: 100px;
+  background-color: pink;
+}
+
+.cake {
+  height: 100px;
+  width: 100px;
+  background-color: red;
+}
