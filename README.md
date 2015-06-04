@@ -6,3 +6,7 @@ Clone this repo and run the setup script:
     cd [name of your project]
     rm -rf .git
     ./setup.sh
+
+##Tasks
+
+- [ ] don't mess up
