@@ -52,7 +52,7 @@ var villain = function(health, attack){
   _.extend(this.health, this.attack);
 };
 
-    AdventureFight.villain = [
+    AdventureFight.villain = {
 
       'Ice King' : new villain({
         health: 100,
@@ -73,12 +73,23 @@ var villain = function(health, attack){
         health: 100,
         attack: 10
       }),
-    ];
+    };
+
+var name = function()
+  {villain.pluck('');
+};
+
+var selectedVillain = name.get(selectedVillain[Math.floor(Math.random())]);
+console.log(selectedVillain)
+
+function choose(villain){
+  Math.floor(Math.random(villain));
+};
 
   $(document).on('submit', '.heroes', function(event){
       event.preventDefault();
       AdventureFight.router.navigate('fight', {trigger: true});
-      AdventureFight.villain.choose()
+      choose();
  });
 
 AdventureFight.vent.on('hero:selected', function(hero){
@@ -86,7 +97,7 @@ AdventureFight.vent.on('hero:selected', function(hero){
   console.log(hero);
 });
 
-AdventureFight.vent.on('villain [Math.floor(Math.random())]', function(villain){
+AdventureFight.vent.on('villain', function(villain){
   selectedVillain = villain;
   console.log(villain);
 });
