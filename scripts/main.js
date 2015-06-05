@@ -6,8 +6,6 @@ window.AdventureFight = window.AdventureFight || {};
   var selectedHero;
   var selectedVillain;
 
-  var villain;
-
   // Define a constructor
     $(document).ready(function(hero){
     $('.home').html(JST['home']());
@@ -15,14 +13,14 @@ window.AdventureFight = window.AdventureFight || {};
     Backbone.history.start();
 });
 
-AdventureFight.Hero = function(params) {
-  _.extend(this, params);
-};
   AdventureFight.vent = _.extend({}, Backbone.Events);
   AdventureFight.vent.on('choose:heroes', function(heroes) {
    $('.heroes').html(JST['home'](heroes));
   });
 
+  AdventureFight.Hero = function(params) {
+    _.extend(this, params);
+  };
 
     // Give all characters an attack function
   AdventureFight.Hero.prototype.attack = function(villain) {
@@ -38,32 +36,18 @@ AdventureFight.Hero = function(params) {
     }),
 
     'Finn': new AdventureFight.Hero({
-
       health: 100,
       attack: 10
-    }),
-
-    'Fionna': new AdventureFight.Hero({
-      health: 100,
-      attack: 10
-    }),
-
-    'Cake': new AdventureFight.Hero({
-      health: 100,
-      attack: 10
-
-      health: 6,
-      attack: 2
     }),
 
     'Fiona': new AdventureFight.Hero({
-      health: 12,
-      attack: 1
+      health: 100,
+      attack: 10
     }),
 
     'Cake': new AdventureFight.Hero({
-      health: 6,
-      attack: 2
+      health: 100,
+      attack: 10
     })
   };
 
@@ -92,15 +76,12 @@ AdventureFight.Hero = function(params) {
   $(document).on('submit', '.heroes', function(event){
       event.preventDefault();
       AdventureFight.router.navigate('fight', {trigger: true});
-      selectedHero = hero;
-      console.log(selectedHero);
-      //  villain = villain[Math.floor(Math.random())];
-      // console.log(villain);
+      villain = villain[Math.floor(Math.random())];
+      console.log(villain);
   });
 
   AdventureFight.vent.on('hero:submit', function(hero) {
-    selectedHero = Hero;
-
+    selectedHero = hero;
   });
 
   AdventureFight.vent.on('hero:submit', function(villain) {
