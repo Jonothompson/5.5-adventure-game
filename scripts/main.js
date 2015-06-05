@@ -1,5 +1,5 @@
 window.AdventureFight = window.AdventureFight || {};
-(function(module){
+(function(){
   'use strict';
 
   // Declare a variable that will later store the selected character and enemy
@@ -9,7 +9,7 @@ window.AdventureFight = window.AdventureFight || {};
   // Define a constructor
     $(document).ready(function(hero){
     $('.home').html(JST['home']());
-    module.router = new module.AdventureRouter();
+    AdventureFight.router = new AdventureFight.AdventureRouter();
     Backbone.history.start();
 });
 
@@ -73,6 +73,13 @@ window.AdventureFight = window.AdventureFight || {};
     })
   };
 
+  $(document).on('submit', '.heroes', function(event){
+      event.preventDefault();
+      AdventureFight.router.navigate('fight', {trigger: true});
+      villain = villain[Math.floor(Math.random())];
+      console.log(villain);
+  });
+
   AdventureFight.vent.on('hero:submit', function(hero) {
     selectedHero = hero;
   });
@@ -87,4 +94,3 @@ window.AdventureFight = window.AdventureFight || {};
   });
 
 })();
-(window.AdventureFight);
