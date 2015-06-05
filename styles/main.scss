@@ -20,9 +20,14 @@ body {
   color: $base-font-color;
 }
 
-div {
+.homePage {
+  background-image: "homePage.jpg";
+}
+
+.heroes div {
   display: inline-block;
 }
+
 
 .finn {
   height: 100px;

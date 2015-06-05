@@ -31,6 +31,16 @@ window.AdventureFight = AdventureFight || {};
     'Finn': new AdventureFight.Hero({
       health: 6,
       attack: 2
+    }),
+
+    'Fiona': new AdventureFight.Hero({
+      health: 12,
+      attack: 1
+    }),
+
+    'Cake': new AdventureFight.Hero({
+      health: 6,
+      attack: 2
     })
   };
 
