@@ -18,36 +18,86 @@ body {
   font-family: $base-font-family;
   background-color: $base-background-color;
   color: $base-font-color;
+  height: 100%;
 }
 
-div {
+<<<<<<< HEAD
+
+// HOME PAGE
+
+.homePage {
+  background-image: url('/../homePage.jpg');
+  background-color: black;
+    background-repeat: repeat;
+    width: auto;
+    height: 730px;
+
+}
+
+.heroes {
+  bottom: 0;
+  position: absolute;
+  @include span-columns(8);
+  @include shift(2.5);
+
+  div {
+    display: inline-block;
+}
+
+
+}
+
+
+.logo {
+position: relative;
+  img{
+  height: 270px;
+  width: 600px;
+  @include shift(3);
+}
+}
+
+.choose {
+
+  p {
+    font-size: 80px;
+    color: white;
+    @include shift(2.6);
+    font-family: 'Indie Flower', cursive;
+  }
+=======
+.homePage {
+  background-image: "homePage.jpg";
+}
+
+.heroes div {
   display: inline-block;
 }
 
+
 .finn {
-  height: 100px;
-  width: 100px;
-  background-color: blue;
+
+
 
 }
 
 .jake {
-  height: 100px;
-  width: 100px;
-  background-color: yellow;
+@include shift(1);
 }
 
-.fiona {
-  height: 100px;
-  width: 100px;
-  background-color: pink;
+.fionna {
+@include shift(1);
+
+
 }
 
 .cake {
-  height: 100px;
-  width: 100px;
-  background-color: red;
+
+
 }
+
+
+// FIGHT SCREEN
 
 .hero {
   width: 100px;

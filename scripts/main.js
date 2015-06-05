@@ -6,6 +6,8 @@ window.AdventureFight = window.AdventureFight || {};
   var selectedHero;
   var selectedVillain;
 
+  var villain;
+
   // Define a constructor
     $(document).ready(function(hero){
     $('.home').html(JST['home']());
@@ -13,14 +15,14 @@ window.AdventureFight = window.AdventureFight || {};
     Backbone.history.start();
 });
 
+AdventureFight.Hero = function(params) {
+  _.extend(this, params);
+};
   AdventureFight.vent = _.extend({}, Backbone.Events);
   AdventureFight.vent.on('choose:heroes', function(heroes) {
    $('.heroes').html(JST['home'](heroes));
   });
 
-  AdventureFight.Hero = function(params) {
-    _.extend(this, params);
-  };
 
     // Give all characters an attack function
   AdventureFight.Hero.prototype.attack = function(villain) {
@@ -36,11 +38,12 @@ window.AdventureFight = window.AdventureFight || {};
     }),
 
     'Finn': new AdventureFight.Hero({
+
       health: 100,
       attack: 10
     }),
 
-    'Fiona': new AdventureFight.Hero({
+    'Fionna': new AdventureFight.Hero({
       health: 100,
       attack: 10
     }),
@@ -48,6 +51,19 @@ window.AdventureFight = window.AdventureFight || {};
     'Cake': new AdventureFight.Hero({
       health: 100,
       attack: 10
+
+      health: 6,
+      attack: 2
+    }),
+
+    'Fiona': new AdventureFight.Hero({
+      health: 12,
+      attack: 1
+    }),
+
+    'Cake': new AdventureFight.Hero({
+      health: 6,
+      attack: 2
     })
   };
 
@@ -76,12 +92,15 @@ window.AdventureFight = window.AdventureFight || {};
   $(document).on('submit', '.heroes', function(event){
       event.preventDefault();
       AdventureFight.router.navigate('fight', {trigger: true});
-      villain = villain[Math.floor(Math.random())];
-      console.log(villain);
+      selectedHero = hero;
+      console.log(selectedHero);
+      //  villain = villain[Math.floor(Math.random())];
+      // console.log(villain);
   });
 
   AdventureFight.vent.on('hero:submit', function(hero) {
-    selectedHero = hero;
+    selectedHero = Hero;
+
   });
 
   AdventureFight.vent.on('hero:submit', function(villain) {
