@@ -17,6 +17,7 @@ AdventureFight.vent.on('choose:heroes', function(characters) {
    module.router = new module.AdventureRouter();
    Backbone.history.start();
 
+<<<<<<< HEAD
     function hero(selectedHero){
       this.attack
       this.health
@@ -45,13 +46,13 @@ AdventureFight.vent.on('choose:heroes', function(characters) {
      }),
 
    }
-   
+
    function heroAttack(hero, villain){
         villain.health - hero.attack;
         return villian.health;
         console.log(villian.health);
    }
-   
+
 /////// villain section ////////
 
    function villain(selectedVillain){
