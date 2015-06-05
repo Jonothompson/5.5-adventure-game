@@ -6,22 +6,25 @@ window.AdventureFight = window.AdventureFight || {};
 var hero = 'selectedHero';
 var villain = 'selectedVillain';
 
-  AdventureFight.vent = _.extend({}, Backbone.Events);
+AdventureFight.vent = _.extend({}, Backbone.Events);
  AdventureFight.vent.on('choose:heroes', function(characters) {
    $('.characters').html(JST['home'](characters));
  });
-
 
   $(document).ready(function(hero){
     $('.home').html(JST['home']());
     module.router = new module.AdventureRouter();
     Backbone.history.start();
 
-    // function hero(selectedHero){
-    //   this.attack
-    //   this.health
-    // }
-//Hannah prototype
+AdventureFight.hero = function(params){
+  _.extend(this, params);
+};
+
+AdventureFight.hero.prototype.attack = function(villain) {
+  villain.health = villain.health - this.attack;
+  AdventureFight.vent.trigger('health:changed');
+};
+
     AdventureFight.hero = {
 
       'Jake' : new hero({
@@ -43,45 +46,49 @@ var villain = 'selectedVillain';
         health: 100,
         attack: 10
       }),
+    };
 
-    }
+var villain = function(health, attack){
+  _.extend(this.health, this.attack);
+};
 
-    $(document).on('submit', '.heroes', function(event){
-   event.preventDefault();
-   AdventureFight.router.navigate('fight', {trigger: true});
+    AdventureFight.villain = [
+
+      'Ice King' : new villain({
+        health: 100,
+        attack: 10
+      }),
+
+      'Earl of Lemongrab' : new villain({
+        health: 100,
+        attack: 10
+      }),
+
+      'Princess Bubblegum' : new villain({
+        health: 100,
+        attack: 10
+      }),
+
+      'Magic Man' : new villain({
+        health: 100,
+        attack: 10
+      }),
+    ];
+
+  $(document).on('submit', '.heroes', function(event){
+      event.preventDefault();
+      AdventureFight.router.navigate('fight', {trigger: true});
+      AdventureFight.villain.choose()
  });
 
-// function villain(selectedVillain){
-//   this.attack:
-//   this.health:
-// }
+AdventureFight.vent.on('hero:selected', function(hero){
+  selectedHero = hero;
+  console.log(hero);
+});
 
-AdventureFight.villain = {
-
-  'Ice King' : new villain({
-    health: 100,
-    attack: 10
-  }),
-
-  'Earl of Lemongrab' : new villain({
-    health: 100,
-    attack: 10
-  }),
-
-  'Princess Bubblegum' : new villain({
-    health: 100,
-    attack: 10
-  }),
-
-  'Magic Man' : new villain({
-    health: 100,
-    attack: 10
-  }),
-
-}
-
-  $(document).on('submit', '.heroes', function(selectedVillain){
-    villain.random()
+AdventureFight.vent.on('villain [Math.floor(Math.random())]', function(villain){
+  selectedVillain = villain;
+  console.log(villain);
 });
 
   });
