@@ -38,6 +38,7 @@ AdventureFight.Hero = function(params) {
     }),
 
     'Finn': new AdventureFight.Hero({
+
       health: 100,
       attack: 10
     }),
@@ -50,6 +51,19 @@ AdventureFight.Hero = function(params) {
     'Cake': new AdventureFight.Hero({
       health: 100,
       attack: 10
+
+      health: 6,
+      attack: 2
+    }),
+
+    'Fiona': new AdventureFight.Hero({
+      health: 12,
+      attack: 1
+    }),
+
+    'Cake': new AdventureFight.Hero({
+      health: 6,
+      attack: 2
     })
   };
 

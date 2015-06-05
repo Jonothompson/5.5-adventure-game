@@ -21,6 +21,7 @@ body {
   height: 100%;
 }
 
+<<<<<<< HEAD
 
 // HOME PAGE
 
@@ -64,7 +65,15 @@ position: relative;
     @include shift(2.6);
     font-family: 'Indie Flower', cursive;
   }
+=======
+.homePage {
+  background-image: "homePage.jpg";
 }
+
+.heroes div {
+  display: inline-block;
+}
+
 
 .finn {
 
