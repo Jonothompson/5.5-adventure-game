@@ -21,7 +21,6 @@ body {
   height: 100%;
 }
 
-<<<<<<< HEAD
 
 // HOME PAGE
 
@@ -49,11 +48,12 @@ body {
 
 
 .logo {
-position: relative;
+
   img{
   height: 270px;
   width: 600px;
   @include shift(3);
+
 }
 }
 
@@ -65,7 +65,8 @@ position: relative;
     @include shift(2.6);
     font-family: 'Indie Flower', cursive;
   }
-=======
+}
+
 .homePage {
   background-image: "homePage.jpg";
 }
