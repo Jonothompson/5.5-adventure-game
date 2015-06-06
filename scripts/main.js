@@ -1,3 +1,4 @@
+
 window.AdventureFight = window.AdventureFight || {};
 
 (function(){
