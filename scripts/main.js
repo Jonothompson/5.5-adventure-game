@@ -1,98 +1,82 @@
 window.AdventureFight = window.AdventureFight || {};
+
 (function(){
-  'use strict';
+ 'use strict';
 
-  // Declare a variable that will later store the selected character and enemy
-  var selectedHero;
-  var selectedVillain;
+ // Declare a variable that will later store the selected character and enemy
+ var selectedHero;
+ var selectedVillain;
 
-  // Define a constructor
-    $(document).ready(function(hero){
-    $('.home').html(JST['home']());
-    AdventureFight.router = new AdventureFight.AdventureRouter();
-    Backbone.history.start();
+ // Define a constructor
+   $(document).ready(function(hero){
+   $('.home').html(JST['home']());
+   AdventureFight.router = new AdventureFight.AdventureRouter();
+   Backbone.history.start();
 });
 
-  AdventureFight.vent = _.extend({}, Backbone.Events);
-  AdventureFight.vent.on('choose:heroes', function(heroes) {
-   $('.heroes').html(JST['home'](heroes));
-  });
+ AdventureFight.Hero = function(params) {
+   _.extend(this, params);
+ };
 
-  AdventureFight.Hero = function(params) {
-    _.extend(this, params);
-  };
+   // Give all characters an attack function
 
-    // Give all characters an attack function
-  AdventureFight.Hero.prototype.attack = function(villain) {
-    villain.health = villain.health - this.attack;
-    AdventureFight.vent.trigger('health:changed');
-  };
 
-  // Create some character instances
-  AdventureFight.heroes = {
-    'Jake': new AdventureFight.Hero({
-      health: 100,
-      attack: 10
-    }),
+ function attackVillain (selectedHero, selectedVillain) {
+   selectedHero.attack - selectedVillain.health;
+ }
 
-    'Finn': new AdventureFight.Hero({
-      health: 100,
-      attack: 10
-    }),
+function selectedVillain (type) {
+ this.type = type;
+}
 
-    'Fiona': new AdventureFight.Hero({
-      health: 100,
-      attack: 10
-    }),
+var villain = new Array();
+villain [0] = new selectedVillain ("Ice King");
+villain [1] = new selectedVillain ("Magic Man");
+villain [2] = new selectedVillain ("Lemon Grab");
+villain [3] = new selectedVillain ("Princess Bubblegum");
 
-    'Cake': new AdventureFight.Hero({
-      health: 100,
-      attack: 10
-    })
-  };
+villain = _.sample(villain);
 
-  AdventureFight.Villain = function(params) {
-    _.extend(this, params);
-  };
+function villain (options){
+ options = options || {};
+ this.health = 100 || options.health;
+ this.name = '' || options.name;
+ this.weapons = [{ type: 'sword', points: [3,10]
+ },
+ {type: 'mace', points: [2,6]
+ }];
+};
 
-  // Give all villains an attack function
-  AdventureFight.Villain.prototype.attack = function(hero) {
-    hero.health = hero.health - this.attack;
-    AdventureFight.vent.trigger('health:changed');
-  };
+function selectedHero (type) {
+ this.type = type;
+}
 
-  AdventureFight.villains = {
-    'Ice King': new AdventureFight.Villain({
-      health: 100,
-      attack: 10
-    }),
+var hero = new Array();
+hero [0] = new selectedHero ("Finn");
+hero [1] = new selectedHero ("Jake");
+hero [2] = new selectedHero ("Fionna");
+hero [3] = new selectedHero ("Cake");
 
-    'Magic Man': new AdventureFight.Villain({
-      health: 100,
-      attack: 10
-    })
-  };
+hero = _.sample(hero);
 
-  $(document).on('submit', '.heroes', function(event){
-      event.preventDefault();
-      AdventureFight.router.navigate('fight', {trigger: true});
-      villain = villain[Math.floor(Math.random())];
-      console.log(villain);
-  });
+function hero (options){
+ options = options || {};
+ this.health = 100 || options.health;
+ this.name = '' || options.name;
+ this.weapons = [{ type: 'sword', points: [3,10]
+ },
+ {type: 'mace', points: [2,6]
+ }];
+};
 
-  AdventureFight.vent.on('hero:submit', function(hero) {
-    selectedHero = hero;
-  });
+ $(document).on('submit', '.heroes', function(event){
+     event.preventDefault();
+     AdventureFight.router.navigate('fight', {trigger: true});
+     console.log(villain);
+     console.log(hero);
+ });
 
-  AdventureFight.vent.on('hero:submit', function(villain) {
-    selectedVillain = _.sample(AdventureFight.Villain, [n]);
-    console.log(selectedVillain);
-  });
+//This is a test
 
-  AdventureFight.vent.on('attack:villain', function() {
-    selectedHero.attack(selectedVillain);
-  });
-
-  
 
 })();
