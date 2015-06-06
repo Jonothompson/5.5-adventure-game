@@ -14,8 +14,6 @@ window.AdventureFight = window.AdventureFight || {};
     Backbone.history.start();
 });
 
-
-
   AdventureFight.Hero = function(params) {
     _.extend(this, params);
   };
@@ -37,7 +35,7 @@ villain [1] = new selectedVillain ("Magic Man");
 villain [2] = new selectedVillain ("Lemon Grab");
 villain [3] = new selectedVillain ("Princess Bubblegum");
 
-villain = villain[Math.floor(Math.random() * villain.length)];
+villain = _.sample(villain);
 
 function villain (options){
   options = options || {};
@@ -59,7 +57,7 @@ hero [1] = new selectedHero ("Jake");
 hero [2] = new selectedHero ("Fionna");
 hero [3] = new selectedHero ("Cake");
 
-hero = selectedHero[Math.floor()];
+hero = _.sample(hero);
 
 function hero (options){
   options = options || {};
