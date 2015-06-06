@@ -5,6 +5,7 @@ window.AdventureFight = window.AdventureFight || {};
   // Declare a variable that will later store the selected character and enemy
   var selectedHero;
   var selectedVillain;
+  var villain;
 
   // Define a constructor
     $(document).ready(function(hero){
