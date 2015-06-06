@@ -79,5 +79,4 @@ function hero (options){
 
 //This is a test
 
-
 })();
