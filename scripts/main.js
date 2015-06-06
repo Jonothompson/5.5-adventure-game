@@ -93,4 +93,6 @@ window.AdventureFight = window.AdventureFight || {};
     selectedHero.attack(selectedVillain);
   });
 
+  
+
 })();
