@@ -1,4 +1,5 @@
 window.AdventureFight = window.AdventureFight || {};
+
 (function(){
   'use strict';
 
@@ -6,8 +7,6 @@ window.AdventureFight = window.AdventureFight || {};
   var selectedHero;
   var selectedVillain;
   
-  
-
   // Define a constructor
     $(document).ready(function(hero){
     $('.home').html(JST['home']());
@@ -23,101 +22,61 @@ window.AdventureFight = window.AdventureFight || {};
 
     // Give all characters an attack function
 
-//    AdventureFight.vent.trigger('health:changed');
-  
 
-  // Create some character instances
-  AdventureFight.heroes = {
-    'Jake': new AdventureFight.Hero({
-      health: 100,
-      attack: 10
-    }),
-
-    'Finn': new AdventureFight.Hero({
-      health: 100,
-      attack: 10
-    }),
-
-    'Fiona': new AdventureFight.Hero({
-      health: 100,
-      attack: 10
-    }),
-
-    'Cake': new AdventureFight.Hero({
-      health: 100,
-      attack: 10
-    })
-  };
-
-  AdventureFight.Villain = function(params) {
-    _.extend(this, params);
-  };
-
-  // Give all villains an attack function
-//  AdventureFight.attackVillain.prototype.attack = function(hero) {
-//    hero.health = hero.health - this.attack;
-//    AdventureFight.vent.trigger('health:changed');
-//  };
-  
   function attackVillain (selectedHero, selectedVillain) {
     selectedHero.attack - selectedVillain.health;
   }
 
-  AdventureFight.villains = {
-    'Ice King': new AdventureFight.Villain({
-      health: 100,
-      attack: 10
-    }),
+function selectedVillain (type) {
+  this.type = type;
+}
 
-    'Magic Man': new AdventureFight.Villain({
-      health: 100,
-      attack: 10
-    })
-  };
+var villain = new Array();
+villain [0] = new selectedVillain ("Ice King");
+villain [1] = new selectedVillain ("Magic Man");
+villain [2] = new selectedVillain ("Lemon Grab");
+villain [3] = new selectedVillain ("Princess Bubblegum");
+
+villain = villain[Math.floor(Math.random() * villain.length)];
+
+function villain (options){
+  options = options || {};
+  this.health = 100 || options.health;
+  this.name = '' || options.name;
+  this.weapons = [{ type: 'sword', points: [3,10]
+  },
+  {type: 'mace', points: [2,6]
+  }];
+};
+
+function selectedHero (type) {
+  this.type = type;
+}
+
+var hero = new Array();
+hero [0] = new selectedHero ("Finn");
+hero [1] = new selectedHero ("Jake");
+hero [2] = new selectedHero ("Fionna");
+hero [3] = new selectedHero ("Cake");
+
+hero = selectedHero[Math.floor()];
+
+function hero (options){
+  options = options || {};
+  this.health = 100 || options.health;
+  this.name = '' || options.name;
+  this.weapons = [{ type: 'sword', points: [3,10]
+  },
+  {type: 'mace', points: [2,6]
+  }];
+};
 
   $(document).on('submit', '.heroes', function(event){
       event.preventDefault();
       AdventureFight.router.navigate('fight', {trigger: true});
-//      villain = villain[Math.floor(Math.random())];
       console.log(villain);
+      console.log(hero);
   });
 
-  AdventureFight.vent.on('hero:submit', function(hero) {
-    selectedHero = hero;
-  });
-
-  AdventureFight.vent.on('hero:submit', function(villain) {
-    selectedVillain = _.sample(AdventureFight.Villain, [n]);
-    console.log(selectedVillain);
-  });
-
-  AdventureFight.vent.on('attack:villain', function() {
-  AdventureFight.Hero.prototype.attack = function(villain) {
-//    villain.health = villain.health - this.attack;
-          console.log('asdfnasdgi');
-    };
-  });
-  
-    AdventureFight.vent.on('attack:villain', function() {
-
-  });
-  
-  AdventureFight.vent.on('attack:hero', function() {
-    selectedVillain.attack(selectedHero);
-  });
-  
-  //////// this is the attack page //////////////
-
-  AdventureFight.vent.on('health:changed', function () {
-    event.preventDefault();
-    selectedVillain.health - selectedHero.attack;
-    console.log('heroAttack');
-  })
-  
-  AdventureFight.vent.listenTo('selectedVillain:selectedVillain.health', function (villainAttack) {
-    event.preventDefault();
-    selectedHero.health - selectedVillain.attack;
-    console.log(villainAttack);
-  })
 
 })();
