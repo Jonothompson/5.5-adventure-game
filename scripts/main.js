@@ -76,7 +76,7 @@ function hero (options){
      console.log(hero);
  });
 
+//This is a test
 
-  
 
 })();
