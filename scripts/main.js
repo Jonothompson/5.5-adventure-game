@@ -5,6 +5,8 @@ window.AdventureFight = window.AdventureFight || {};
   // Declare a variable that will later store the selected character and enemy
   var selectedHero;
   var selectedVillain;
+  
+  
 
   // Define a constructor
     $(document).ready(function(hero){
@@ -13,20 +15,16 @@ window.AdventureFight = window.AdventureFight || {};
     Backbone.history.start();
 });
 
-  AdventureFight.vent = _.extend({}, Backbone.Events);
-  AdventureFight.vent.on('choose:heroes', function(heroes) {
-   $('.heroes').html(JST['home'](heroes));
-  });
+
 
   AdventureFight.Hero = function(params) {
     _.extend(this, params);
   };
 
     // Give all characters an attack function
-  AdventureFight.Hero.prototype.attack = function(villain) {
-    villain.health = villain.health - this.attack;
-    AdventureFight.vent.trigger('health:changed');
-  };
+
+//    AdventureFight.vent.trigger('health:changed');
+  
 
   // Create some character instances
   AdventureFight.heroes = {
@@ -56,10 +54,14 @@ window.AdventureFight = window.AdventureFight || {};
   };
 
   // Give all villains an attack function
-  AdventureFight.Villain.prototype.attack = function(hero) {
-    hero.health = hero.health - this.attack;
-    AdventureFight.vent.trigger('health:changed');
-  };
+//  AdventureFight.attackVillain.prototype.attack = function(hero) {
+//    hero.health = hero.health - this.attack;
+//    AdventureFight.vent.trigger('health:changed');
+//  };
+  
+  function attackVillain (selectedHero, selectedVillain) {
+    selectedHero.attack - selectedVillain.health;
+  }
 
   AdventureFight.villains = {
     'Ice King': new AdventureFight.Villain({
@@ -76,7 +78,7 @@ window.AdventureFight = window.AdventureFight || {};
   $(document).on('submit', '.heroes', function(event){
       event.preventDefault();
       AdventureFight.router.navigate('fight', {trigger: true});
-      villain = villain[Math.floor(Math.random())];
+//      villain = villain[Math.floor(Math.random())];
       console.log(villain);
   });
 
@@ -90,7 +92,32 @@ window.AdventureFight = window.AdventureFight || {};
   });
 
   AdventureFight.vent.on('attack:villain', function() {
-    selectedHero.attack(selectedVillain);
+  AdventureFight.Hero.prototype.attack = function(villain) {
+//    villain.health = villain.health - this.attack;
+          console.log('asdfnasdgi');
+    };
   });
+  
+    AdventureFight.vent.on('attack:villain', function() {
+
+  });
+  
+  AdventureFight.vent.on('attack:hero', function() {
+    selectedVillain.attack(selectedHero);
+  });
+  
+  //////// this is the attack page //////////////
+
+  AdventureFight.vent.on('health:changed', function () {
+    event.preventDefault();
+    selectedVillain.health - selectedHero.attack;
+    console.log('heroAttack');
+  })
+  
+  AdventureFight.vent.listenTo('selectedVillain:selectedVillain.health', function (villainAttack) {
+    event.preventDefault();
+    selectedHero.health - selectedVillain.attack;
+    console.log(villainAttack);
+  })
 
 })();
