@@ -11,6 +11,9 @@ this["JST"]["home"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"mai
 this["JST"]["lose"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "";
 },"useData":true});
+this["JST"]["villains"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<div class= \"villains\">\n\n  <div class=\"IceKing\">\n    <input type=\"image\" name=\"IceKing\" src=\"../iceking.gif\" height=\"230\" width=\"150\">\n  </div>\n\n  <div class=\"MagicMan\">\n    <input type=\"image\" name=\"MagicMan\" src=\"../magicman.png\" height=\"230\" width=\"150\">\n  </div>\n\n  <div class=\"Lemongrab\">\n    <input type=\"image\" name=\"Lemongrab\" src=\"../lemongrab.png\" height=\"230\" width=\"150\">\n  </div>\n\n  <div class=\"PrincessBubblegum\">\n    <input type=\"image\" name=\"PrincessBubblegum\" src=\"../princessbubblegum.png\" height=\"230\" width=\"150\">\n  </div>\n";
+},"useData":true});
 this["JST"]["win"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "";
 },"useData":true});
