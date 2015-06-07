@@ -1,8 +1,8 @@
+
 window.AdventureFight = window.AdventureFight || {};
 
 (function(){
  'use strict';
-
  // Declare a variable that will later store the selected character and enemy
  var selectedHero;
  var selectedVillain;
@@ -51,15 +51,15 @@ function selectedHero (type) {
  this.type = type;
 }
 
-var hero = new Array();
-hero [0] = new selectedHero ("Finn");
-hero [1] = new selectedHero ("Jake");
-hero [2] = new selectedHero ("Fionna");
-hero [3] = new selectedHero ("Cake");
+var heroes = new Array();
+heroes [0] = new selectedHero ("Finn");
+heroes [1] = new selectedHero ("Jake");
+heroes [2] = new selectedHero ("Fionna");
+heroes [3] = new selectedHero ("Cake");
 
-hero = _.sample(hero);
+//hero = _.sample(hero);
 
-function hero (options){
+function heroStats (options){
  options = options || {};
  this.health = 100 || options.health;
  this.name = '' || options.name;
@@ -69,14 +69,13 @@ function hero (options){
  }];
 };
 
- $(document).on('submit', '.heroes', function(event){
+ $(document).on('click', '.heroSelect', function(event){
      event.preventDefault();
      AdventureFight.router.navigate('fight', {trigger: true});
      console.log(villain);
+     var name = $(event.target).attr('name');
+     var hero = _.where(heroes, {type : name});
      console.log(hero);
  });
-
-//This is a test
-
 
 })();
