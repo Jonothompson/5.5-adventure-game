@@ -3,7 +3,6 @@ window.AdventureFight = window.AdventureFight || {};
 
 (function(){
  'use strict';
-
  // Declare a variable that will later store the selected character and enemy
  var selectedHero;
  var selectedVillain;
@@ -78,7 +77,5 @@ function heroStats (options){
      var hero = _.where(heroes, {type : name});
      console.log(hero);
  });
-
-//This is a test
 
 })();
