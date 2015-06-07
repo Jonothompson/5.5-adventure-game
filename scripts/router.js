@@ -17,9 +17,10 @@ module.AdventureRouter = Backbone.Router.extend({
 //this function is working
   fight: function() {
     $('.home').html(JST['fight']());
-    $('.hero').trigger('click', function(){
-      AdventureFight.vent.trigger('attack:villain');
-    });
+    
+//    $('.hero').trigger('click', function(){
+//      AdventureFight.vent.trigger('attack:villain');
+//    });
 //    $('attach:villain').listenTo('change:health', function(){
 //      AdventureFight.vent.trigger('attack:hero');
 //    });
