@@ -112,3 +112,36 @@ body {
   background-color: purple;
 
 }
+
+//WIN SCREEN
+
+.winPage {
+  background-image: "win.jpg";
+  background-color: purple;
+}
+
+.winner {
+  background-image: "win.jpg";
+  color: red;
+  font-family: 'Indie Flower' cursive;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 40px;
+  padding: 20% 20% 20% 20%;
+}
+
+//LOSE SCREEN
+
+.losePage{
+  background-image: 'lose.jpg';
+}
+
+.loser {
+  background-image: 'lose.jpg';
+  color: red;
+  font-family: 'Indie Flower' cursive;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 40px;
+  padding: 20% 20% 20% 20%;
+}

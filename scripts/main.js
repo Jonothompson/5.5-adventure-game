@@ -1,6 +1,5 @@
 window.AdventureFight = window.AdventureFight || {};
 
-(function(){
  'use strict';
 
  // Declare a variable that will later store the selected character and enemy
@@ -19,7 +18,6 @@ window.AdventureFight = window.AdventureFight || {};
  };
 
    // Give all characters an attack function
-
 
  function attackVillain (selectedHero, selectedVillain) {
    selectedHero.attack - selectedVillain.health;
@@ -76,7 +74,30 @@ function hero (options){
      console.log(hero);
  });
 
-//This is a test
+//fight code goes here
 
+$(document).on('submit', '.hero-fight', function(event){
+    event.preventDefault();
+    villainHealth = 10;
+      if (villainHealth > 1){
+        AdventureFight.villain.prototype.weapons = function(villain) {
+            villain.health = villain.health - this.weapons;
+      console.log('derp');
+    }}
 
-})();
+$(document).on('submit', '.villain-fight', function(event){
+    event.preventDefault();
+
+      console.log('halp');
+    });
+
+});
+
+// function loseWin(){
+//   if (heroHealth === 0){
+//     AdventureFight.router.navigate('lose', {trigger: true});
+//   }
+//   else {
+//     AdventureFight.router.navigate('win', {trigger: true});
+//   }
+//   console.log('fuck');
