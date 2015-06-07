@@ -77,5 +77,42 @@ function heroStats (options){
      var hero = _.where(heroes, {type : name});
      console.log(hero);
  });
+ 
+ 
 
 })();
+
+
+//// Attack prototype
+//Player.prototype.attack = function(attacked, hitPoints, type) {
+//    if (hitPoints) {
+//        hitPoints = hitPoints.split(',');
+//        hitPoints = randomNum(+hitPoints[0], +hitPoints[1]);
+//    }
+//        else hitPoints = randomNum(0, 10);
+//    attacked.health = attacked.health - hitPoints;
+//    if (this instanceof User) {
+//        $(".human .attack-history").html("<li>Attacked with "+type+" and took " + hitPoints + " health points from " + computer.name + "</li>");
+//    } else
+//        $(".computer .attack-history").html("<li>Attacked "+type+" and took " + hitPoints + " health points from " + user.name + "</li>");
+//};
+//
+//// Attack method
+//$(document).on("click", ".attack", function(e) {
+//    e.preventDefault();
+//
+//    var pointSub = $(this).closest(".player").find(".selected").attr("points"); //getEngageOption("points");
+//
+//    var type = $(this).closest(".player").find(".selected").text();
+//
+//    var computerWeapon = randomNum(0, computer.weapons.length-1);
+//    user.attack(computer, pointSub, type);
+//    computer.attack(user, pointSub, computer.weapons[computerWeapon].type);
+//
+//    checkHealth(user.health, computer.health);
+//
+//    updateHealthBar();
+//
+//    animatePlayers();
+//
+//});

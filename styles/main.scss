@@ -4,43 +4,44 @@
 // Typography
 $base-font-family: $helvetica;
 
+
 // Colors
-$blue: #477dca;
+$blue: #477dca ;
 $dark-gray: #333;
 $medium-gray: #999;
 $light-gray: #ddd;
-$very-light-gray: #fafafa;
+$very-light-gray: #fafafa ;
 
 $base-font-color: $dark-gray;
 $base-background-color: $very-light-gray;
 
 body {
-  font-family: $base-font-family;
-  background-color: $base-background-color;
-  color: $base-font-color;
-  height: 100%;
+ font-family: $base-font-family;
+ background-color: $base-background-color;
+ color: $base-font-color;
+ height: auto;
 }
 
 
 // HOME PAGE
 
 .homePage {
-  background-image: url('/../homePage.jpg');
-  background-color: black;
-    background-repeat: repeat;
-    width: auto;
-    height: 730px;
+ background-image: url('/../homePage.jpg');
+ background-color: black;
+   background-repeat: repeat;
+   width: auto;
+   height: 730px;
 
 }
 
 .heroes {
-  bottom: 0;
-  position: absolute;
-  @include span-columns(8);
-  @include shift(2.5);
+ bottom: 0;
+ position: absolute;
+ @include span-columns(8);
+ @include shift(2.5);
 
-  div {
-    display: inline-block;
+ div {
+   display: inline-block;
 }
 
 
@@ -49,35 +50,34 @@ body {
 
 .logo {
 
-  img{
-  height: 270px;
-  width: 600px;
-  @include shift(3);
+ img{
+ height: 270px;
+ width: 600px;
+ @include shift(3);
 
 }
 }
 
 .choose {
 
-  p {
-    font-size: 80px;
-    color: white;
-    @include shift(2.6);
-    font-family: 'Indie Flower', cursive;
-  }
+ p {
+   font-size: 80px;
+   color: white;
+   @include shift(2.6);
+   font-family: 'Indie Flower', cursive;
+ }
 }
 
 .homePage {
-  background-image: "homePage.jpg";
+ background-image: "homePage.jpg";
 }
 
 .heroes div {
-  display: inline-block;
+ display: inline-block;
 }
 
 
 .finn {
-
 
 
 }
@@ -100,15 +100,101 @@ body {
 
 // FIGHT SCREEN
 
-.hero {
-  width: 100px;
-  height: 300px;
-  background-color: gold;
+header {
+
+ p {
+ font-family: 'Indie Flower', cursive;
+ margin-bottom: 0;
+ font-size: 80px;
+ color: white;
+ @include shift(3.5);
+
 }
 
-.villian {
-  width: 100px;
-  height: 300px;
-  background-color: purple;
+}
+.page2 {
+ @include outer-container;
+}
+
+.fightPage {
+ background-image: url('/../442432.jpg');
+ height: auto;
+@include span-columns(12);
+
+}
+
+
+.heroPicture img {
+ height: 300px;
+ width: 300px;
+
+
+}
+
+
+.hero {
+ @include span-columns(4);
+ @include shift(2);
+ font-family: 'Indie Flower', cursive;
+float: left;
+ p {
+   font-size: 40px;
+   margin: 0 auto;
+   color: white;
+   font-weight: bolder;
+   min-width: 330px;
+ }
+}
+
+input#attack1  {
+width: 330px;
+color: rgba(57, 113, 86, 1);
+font-size: 20px;
+background-color: rgba(216, 215, 221, 1);
+border-radius: 5px;
+
+}
+
+input#attack2 {
+ width: 330px;
+ color: rgba(57, 113, 86, 1);
+ font-size: 20px;
+ background-color: rgba(216, 215, 221, 1);
+ border-radius: 5px;
+}
+
+.villain {
+
+ @include span-columns(4);
+ @include shift(1);
+ font-family: 'Indie Flower', cursive;
+float: left;
+ p {
+   font-size: 40px;
+   margin: 0 auto;
+   color: white;
+   font-weight: bolder;
+   min-width: 330px;
+
+
+}
+}
+.health {
+
+ height: 50px;
+ border-radius: 4px;
+ background-color: teal;
+ min-width: 330px;
+ max-width: 330px;
+
+}
+
+.villainPicture {
+
+ img {
+   height: 300px;
+   width: 270px;
+
+ }
 
 }
