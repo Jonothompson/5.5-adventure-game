@@ -26,14 +26,18 @@ window.AdventureFight = window.AdventureFight || {};
  }
 
 function selectedVillain (type) {
- this.type = type;
+ this.src = type;
 }
 
 var villain = new Array();
-villain [0] = new selectedVillain ("Ice King");
-villain [1] = new selectedVillain ("Magic Man");
-villain [2] = new selectedVillain ("Lemon Grab");
-villain [3] = new selectedVillain ("Princess Bubblegum");
+villain [0] = new selectedVillain ("../iceking.gif");
+villain [0].src = "../iceking.gif";
+villain [1] = new selectedVillain ("../magicman.png");
+villain [1].src = "../magicman.png";
+villain [2] = new selectedVillain ("../lemongrab.png");
+villain [2].src = "../lemongrab.png";
+villain [3] = new selectedVillain ("../princessbubblegum.png");
+villain [3].src = "../princessbubblegum.png";
 
 villain = _.sample(villain);
 
@@ -53,9 +57,13 @@ function selectedHero (type) {
 
 var hero = new Array();
 hero [0] = new selectedHero ("Finn");
+hero [0].src = "../finn.png";
 hero [1] = new selectedHero ("Jake");
+hero [1].src = "../jake.png";
 hero [2] = new selectedHero ("Fionna");
+hero [2].src = "../fionna_8037.png";
 hero [3] = new selectedHero ("Cake");
+hero [3].src = "../cake.png";
 
 hero = _.sample(hero);
 
