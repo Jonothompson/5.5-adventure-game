@@ -6,8 +6,7 @@ window.AdventureFight = window.AdventureFight || {};
  // Declare a variable that will later store the selected character and enemy
  var selectedHero;
  var selectedVillain;
- var heroSelect = document.getElementById('heroSelect.src');
-
+ var heroSelect = $('.heroSelect').attr('src');
  // Define a constructor
    $(document).ready(function(hero){
    $('.home').html(JST['home']());
@@ -50,7 +49,7 @@ function villain (options){
 
 function selectedHero (type) {
  this.type = type;
- this.image = heroSelect;
+ this.image = image;
 }
 
 var heroes = new Array();
@@ -77,6 +76,8 @@ function heroStats (options){
      console.log(villain);
      var name = $(event.target).attr('name');
      var hero = _.where(heroes, {type : name});
+     var image = $(event.target).attr('src');
+     console.log(image);
      console.log(hero);
  });
  
