@@ -6,6 +6,7 @@ window.AdventureFight = window.AdventureFight || {};
  // Declare a variable that will later store the selected character and enemy
  var selectedHero;
  var selectedVillain;
+ var heroSelect = document.getElementById('heroSelect.src');
 
  // Define a constructor
    $(document).ready(function(hero){
@@ -49,6 +50,7 @@ function villain (options){
 
 function selectedHero (type) {
  this.type = type;
+ this.image = heroSelect;
 }
 
 var heroes = new Array();
@@ -77,6 +79,8 @@ function heroStats (options){
      var hero = _.where(heroes, {type : name});
      console.log(hero);
  });
+ 
+
  
 // // Attack prototype
 //selectedHero.prototype.attack = function(attacked, health, type) {
