@@ -78,41 +78,61 @@ function heroStats (options){
      console.log(hero);
  });
  
- 
-
-})();
-
-
-//// Attack prototype
-//Player.prototype.attack = function(attacked, hitPoints, type) {
-//    if (hitPoints) {
-//        hitPoints = hitPoints.split(',');
-//        hitPoints = randomNum(+hitPoints[0], +hitPoints[1]);
+// // Attack prototype
+//selectedHero.prototype.attack = function(attacked, health, type) {
+//    if (health) {
+//        health = health.split(',');
+//        health = randomNum(+hitPoints[0], +hitPoints[1]);
 //    }
-//        else hitPoints = randomNum(0, 10);
+//        else health = randomNum(0, 10);
 //    attacked.health = attacked.health - hitPoints;
 //    if (this instanceof User) {
-//        $(".human .attack-history").html("<li>Attacked with "+type+" and took " + hitPoints + " health points from " + computer.name + "</li>");
+//        $(".human .attack-history").html("<li>Attacked with "+type+" and took " + health + " health points from " + villain.name + "</li>");
 //    } else
-//        $(".computer .attack-history").html("<li>Attacked "+type+" and took " + hitPoints + " health points from " + user.name + "</li>");
+//        $(".computer .attack-history").html("<li>Attacked "+type+" and took " + health + " health points from " + heroes.name + "</li>");
 //};
 //
 //// Attack method
 //$(document).on("click", ".attack", function(e) {
 //    e.preventDefault();
 //
-//    var pointSub = $(this).closest(".player").find(".selected").attr("points"); //getEngageOption("points");
+//    var pointSub = $(this).closest(".selectedHero").find(".selected name").attr("points"); //getEngageOption("points");
 //
-//    var type = $(this).closest(".player").find(".selected").text();
+//    var type = $(this).closest(".selectedHero").find(".selected name").text();
 //
 //    var computerWeapon = randomNum(0, computer.weapons.length-1);
-//    user.attack(computer, pointSub, type);
-//    computer.attack(user, pointSub, computer.weapons[computerWeapon].type);
+//    heroes.attack(villain, pointSub, type);
+//    villain.attack(heroes, pointSub, villain.weapons[computerWeapon].type);
 //
-//    checkHealth(user.health, computer.health);
+//    checkHealth(heroes.health, villain.health);
 //
 //    updateHealthBar();
 //
 //    animatePlayers();
 //
 //});
+//
+//function updateHealthBar() {
+//
+//    $(".selectedHero .health span").css({
+//        width: heroes.health + "%"
+//    });
+//    
+//    $(".selectedVillain .health span").css({
+//        width: villain.health + "%"
+//    });
+//    
+//};
+//    
+//function animatePlayers() {
+//    $('#selectedHero-image').toggleClass('selectedHero-attack');
+//    $('#villain-image').toggleClass('villain-attack');
+//    $('#selectedHero-image').toggleClass('selectedHero-idle');
+//    $('#villain-image').toggleClass('villain-idle');
+//};
+
+})();
+
+
+
+
